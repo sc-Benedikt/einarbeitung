@@ -64,21 +64,6 @@ class Squad():
 
                     else:
                         print(f"{k} : {v}")
-    
-    def member_delete(self):
-
-        for member in self.squads_dict.get("members"):
-            print(member.get("name"))
-
-        member_choice = input("Welchen member löschen: ")
-
-        for member in self.squads_dict.get("members"):
-            if member_choice.lower() == member.get("name").lower():
-                print(self.squads_dict.get("members"))
-                (self.squads_dict.get("members")).remove(member)
-            
-                print("member gelöscht")
-
 
     class Members():
         def __init__(self, squad):
