@@ -7,9 +7,9 @@
 ### Fragen:
 
 1. Was sind die Unterschiede der Datentypen?
-    -Json - wird mit [], {}, (),  geschreieben
+    -Json - wird mit [], {}  geschreieben
     -XML - wird mit <, >, geschrieben 
-    -YAML - wird mit lehrzeichen geschreiben
+    -YAML - einrückungen durch leerzeichen nicht tab
 
 2. Was sind Vor- und Nachteile der jeweiligen Dateiformate?
     -Json - Sehr gut lesbar          | keine Kommentare erlaubt
@@ -35,7 +35,7 @@
     -beim validieren prüft man dateien darauf ob sie den Regeln entspricht
 
 8. An was erinnert eine XML-Datei bzgl. ihres Aufbaus?
-    -
+    -es errinter stark HTML durch die nutzung der <TAG>
 
 9. Was bedeutet Parsen?
-    -
+    -Codes/Programme analysieren (oder in einzelneteile teilen) um sie zu verstehen und erklären zu können
