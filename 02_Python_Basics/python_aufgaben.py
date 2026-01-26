@@ -80,16 +80,23 @@ class Squad():
                 print("member gelöscht")
 
 
-    # class Members():
-    #     def __init__(self ):
-    #         self.member_dict = self.members
-    #         self.name = member_dict.get("name")
-    #         self.age = member_dict.get("age")
-    #         self.secretIdentity = member_dict.get("secretIdentity")
-    #         self.powers = member_dict.get("powers")
+    class Members():
+        def __init__(self, squad):
+            self.member_dict = squad.get("members")
  
-    #     def anzeigen(self):
-    #         print(self.name)
+        def member_delete(self):
+
+            for member in self.member_dict:
+                print(member.get("name"))
+
+            member_choice = input("Welchen member löschen: ")
+
+            for member in self.member_dict:
+                if member_choice.lower() == member.get("name").lower():
+                    print(self.member_dict)
+                    (self.member_dict).remove(member)
+
+                    print("member gelöscht")
 
 
 while True: 
@@ -129,8 +136,8 @@ while True:
                 Squad(choice_squad).member_add()
 
             elif what_do == "delete member":
-                Squad(choice_squad).member_delete()
-            
+                Squad.Members(choice_squad).member_delete()
+                
             elif what_do == "show member":
                 Squad(choice_squad).show_member()
         
@@ -140,3 +147,4 @@ while True:
     elif what_do == "stop":
         break
         
+
