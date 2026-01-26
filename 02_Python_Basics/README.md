@@ -30,21 +30,21 @@
 ## Fragen zur Objektorientierung
 
 1. Warum verwendet man Objektorientierung?
-    Code zusprachen indem man ihn wieder verwenden kann mit anderen variablen werten
-2. Welche weiteren Vorgehensweisen gibt es?
-
-3. Was ist ein Objekt und was eine Klasse?
-    eine klasse ist eine eigenschaft die ein objekt haben kann und das objekt ist wie es dann wirklich aussieht
+    um einen Code mehrmals ihn wieder verwenden zu können aber mit anderen variablen werten
+2. Welche weiteren Vorgehensweisen gibt es? 
+    Es gibt z.B. noch die prozedurale Programmierung in der der Code auf Funktionen aufgebaut ist
+3. Was ist ein Objekt und was eine Klasse?  
+    eine klasse ist eine eigenschaft wie etwas sein kann und das objekt ist wie es dann wirklich aussieht
 4. Was versteht man unter Kapselung?
-    OOP ist gekapselt weil der code nur die klasse preis geben muss aber nicht die genauen daten
+    Objektorientiertes Programmieren ist gekapselt weil der code nur die klasse preis geben muss aber nicht die genauen daten
 5. Was ist Vererbung?
     funktionen in einer klasse können sichuntereinander verschiedene daten vererben ohne sie in jeder funktion neu bestimmen zu müssen
 6. Was versteht man unter Refactoring?
-    etwas wieder verwenden
+    darunter versteht man einen code zu verbesseren ohne etwas an seinen funktionen zu ändern
 7. Welche Rolle spielt das Refactoring bzgl. der Wiederverwendung von Code?
-    OOP ist refacrotrin weil er für verschiedene sachen benutz werden kann z.b. für verschiedene auto modele
+    Dadurch kann code einfacher/verständlicher geschrieben werden so das er für andere Projekte (oder auch im selben code) wieder verwendet werden kann.
 8. Für was gibt es die `__init__`-Funktion in einer Klasse?
-    um variablen daten für funktionen in der klasse frei zu geben damit sie diese einracher aufrufen können und nicht immer wieder neu bestimmen müssen
+    um variablen daten für funktionen in der klasse frei zu geben damit sie diese einfacher aufrufen können
 9. Für was braucht man den `self` Parameter?
     damit die durch __init__ gespeicherten daten in eine variable eingespeichert werden können
 10. Wie schreibt man einzeilige und mehrzeilige Kommentare in Python?
@@ -54,7 +54,8 @@
     Java, C#, C++
 12. Korrigiere die Fehlerhaften Skripte.
 
-### Code 1. es fehlt das "self" in der __init__ funktion
+### Code 1. 
+es fehlt das "self" in der __init__ funktion
 ```python
 class MyClass:
     def __init__(name):
@@ -68,7 +69,8 @@ obj.greet()
 ```
 
 
-### Code 2 print ist zu weit ausgerückt
+### Code 2 
+print ist zu weit ausgerückt
 ```python
 def say_hello():
 print("Hello, World!")  
@@ -77,7 +79,8 @@ say_hello()
 ```
 
 
-### Code 3 zu wenige "=" bei dem if vergleich
+### Code 3 
+zu wenige "=" bei dem if vergleich
 ```python
 x = 10
 if x = 5:   
@@ -85,7 +88,8 @@ if x = 5:
 ```
 
 
-### Code 4 "[i]" geht nur mit listen aber numbers ist keine liste
+### Code 4 
+"[i]" geht nur mit listen aber numbers ist keine liste
 ```python
 numbers = (1, 2, 3, 4, 5) 
 for i in range(len(numbers)):
@@ -93,7 +97,8 @@ for i in range(len(numbers)):
 ```
 
 
-### Code 5 zu viele daten zum entpacken (zu entpacken gibt es 5,aber es ist nur platz für 3)
+### Code 5 
+zu viele daten zum einspeichern (zu entpacken gibt es 5,aber es ist nur platz für 3)
 ```python
 values = [1, 2, 3, 4, 5]
 a, b, c = values
