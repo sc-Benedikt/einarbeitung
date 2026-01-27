@@ -64,19 +64,39 @@ class Squad():
 
                     else:
                         print(f"{k} : {v}")
- 
+    
     def member_delete(self):
 
-        for member in self.members:
+        for member in self.squads_dict.get("members"):
             print(member.get("name"))
 
         member_choice = input("Welchen member löschen: ")
 
-        for member in self.members:
+        for member in self.squads_dict.get("members"):
             if member_choice.lower() == member.get("name").lower():
-                (self.members).remove(member)
-
+                print(self.squads_dict.get("members"))
+                (self.squads_dict.get("members")).remove(member)
+            
                 print("member gelöscht")
+
+
+    class Members():
+        def __init__(self, squad):
+            self.member_dict = squad.get("members")
+ 
+        def member_delete(self):
+
+            for member in self.member_dict:
+                print(member.get("name"))
+
+            member_choice = input("Welchen member löschen: ")
+
+            for member in self.member_dict:
+                if member_choice.lower() == member.get("name").lower():
+                    print(self.member_dict)
+                    (self.member_dict).remove(member)
+
+                    print("member gelöscht")
 
 
 while True: 
@@ -116,7 +136,7 @@ while True:
                 Squad(choice_squad).member_add()
 
             elif what_do == "delete member":
-                Squad(choice_squad).member_delete()
+                Squad.Members(choice_squad).member_delete()
                 
             elif what_do == "show member":
                 Squad(choice_squad).show_member()
