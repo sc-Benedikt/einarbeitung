@@ -15,8 +15,5 @@ def json_to_xml():
         with open (fr"/home/git_repo/einarbeitung/03_Dateiformate/base.xml", "w") as xml_data:
             xml_data.write(xml)
         
-
-
-
 json_to_yml()
 json_to_xml()
