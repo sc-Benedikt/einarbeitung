@@ -1,14 +1,14 @@
 import json, os
 
-with open(rf"/home/git_repo/einarbeitung/base.json", "r") as i:
+with open("/home/git_repo/einarbeitung/base.json", "r") as i:
     squads = json.load(i)
 
 
-def Terminal_clear():
+def terminal_clear():
     os.system("clear")
 
 
-Terminal_clear()
+terminal_clear()
 
 
 class Squad:
@@ -112,7 +112,7 @@ while True:
     options = ["show squads", "add member", "delete member", "show member"]
     if what_do in options:
 
-        Terminal_clear()
+        terminal_clear()
 
         options_2 = []
         for squad in squads:
@@ -121,7 +121,7 @@ while True:
 
         choice = input("für welches der oben genannten squads: ")
 
-        Terminal_clear()
+        terminal_clear()
 
         if choice in options_2:
 
