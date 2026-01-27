@@ -30,19 +30,32 @@
 ## Fragen zur Objektorientierung
 
 1. Warum verwendet man Objektorientierung?
-2. Welche weiteren Vorgehensweisen gibt es?
-3. Was ist ein Objekt und was eine Klasse?
+    um einen Code mehrmals wieder verwenden zu können aber mit anderen variablen werten
+2. Welche weiteren Vorgehensweisen gibt es? 
+    Es gibt z.B. noch die prozedurale Programmierung in der der Code auf Funktionen aufgebaut ist
+3. Was ist ein Objekt und was eine Klasse?  
+    Eine Klasse legt fest welche Eigenschaften Objekte haben können (z.B. Die Klasse Auto hat die eigenschaften "Marke, Model, Farbe"), ein Objekt besitzt dann die jeweiligen Werte für die Eigenschaften (z.B. ein Objekt für die Auto Klasse wäre "Audi, RS6, Schwarz").
 4. Was versteht man unter Kapselung?
+    Darunter versteht man das Daten nicht Preisgegeben werden müssen, man weiß zwar das sie da sind aber nicht was diese entsprechen
 5. Was ist Vererbung?
+    Vererbung ist wenn eine höhere Klasse (Basis Klasse) Attribute oder Methoden einer neuen Klasse (Subklasse) weiter gibt
 6. Was versteht man unter Refactoring?
+    darunter versteht man einen code zu verbesseren ohne etwas an seinen funktionen zu ändern
 7. Welche Rolle spielt das Refactoring bzgl. der Wiederverwendung von Code?
+    Dadurch das der code einfacher/verständlicher geschrieben ist kann er für andere Projekte (oder auch im selben code) einfacher wieder verwendet werden.
 8. Für was gibt es die `__init__`-Funktion in einer Klasse?
+    Die Funktion dient dazu die Anfangszustände der Objekte festzulegen
 9. Für was braucht man den `self` Parameter?
+    damit die durch __init__ gespeicherten daten in eine variable eingespeichert werden können
 10. Wie schreibt man einzeilige und mehrzeilige Kommentare in Python?
+    einzeilige entweder mit einem "#" (alles was dahinter steht wird als kommentag gewärtet)
+    und mehr Zeilig mit 3." also """ & """ alles was zwischen diesen Anführungsstrichen steht wird als kommentar gewärtet
 11. Welche weiteren objektorientierten Programmiersprachen neben Python gibt es? (3 Beispiele)
+    Java, C#, C++
 12. Korrigiere die Fehlerhaften Skripte.
 
-### Code 1
+### Code 1. 
+es fehlt das "self" in der __init__ funktion
 ```python
 class MyClass:
     def __init__(name):
@@ -56,7 +69,8 @@ obj.greet()
 ```
 
 
-### Code 2
+### Code 2 
+print ist zu weit ausgerückt
 ```python
 def say_hello():
 print("Hello, World!")  
@@ -66,6 +80,7 @@ say_hello()
 
 
 ### Code 3 
+zu wenige "=" bei dem if vergleich
 ```python
 x = 10
 if x = 5:   
@@ -73,7 +88,8 @@ if x = 5:
 ```
 
 
-### Code 4
+### Code 4 
+Tupel sind nicht änderbar (numers[i] kann den wer nicht austauschen)
 ```python
 numbers = (1, 2, 3, 4, 5) 
 for i in range(len(numbers)):
@@ -81,7 +97,8 @@ for i in range(len(numbers)):
 ```
 
 
-### Code 5
+### Code 5 
+zu viele daten zum einspeichern (zu entpacken gibt es 5,aber es ist nur platz für 3)
 ```python
 values = [1, 2, 3, 4, 5]
 a, b, c = values

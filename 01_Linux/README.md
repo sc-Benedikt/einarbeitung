@@ -28,7 +28,7 @@ b) Erstelle ein Basis Monitoring für ein Server, Switches, Firewall
     Vitualisierung ist die erstellung von mehreren Virtuellen Umgebungen auf nur einem System
     VMs sind viel schneller und einfacher zu erstellen als ein pyshsicher server Benutzbar zu machen
 - Was sind yum und dnf?
-
+    Daten typen
 - Was ist eine IDE und wie unterscheidet sie sich von einem Texteditor?
     IDE ist ein editor der funktionen wie z.b. compiler, Debugger hat
     In einen Texceditor kann man nur TExte schreiben oder Bearbeiten
