@@ -30,21 +30,21 @@
 ## Fragen zur Objektorientierung
 
 1. Warum verwendet man Objektorientierung?
-    um einen Code mehrmals ihn wieder verwenden zu können aber mit anderen variablen werten
+    um einen Code mehrmals wieder verwenden zu können aber mit anderen variablen werten
 2. Welche weiteren Vorgehensweisen gibt es? 
     Es gibt z.B. noch die prozedurale Programmierung in der der Code auf Funktionen aufgebaut ist
 3. Was ist ein Objekt und was eine Klasse?  
-    eine klasse ist eine eigenschaft wie etwas sein kann und das objekt ist wie es dann wirklich aussieht
+    Eine Klasse legt fest welche Eigenschaften Objekte haben können (z.B. Die Klasse Auto hat die eigenschaften "Marke, Model, Farbe"), ein Objekt besitzt dann die jeweiligen Werte für die Eigenschaften (z.B. ein Objekt für die Auto Klasse wäre "Audi, RS6, Schwarz").
 4. Was versteht man unter Kapselung?
-    Objektorientiertes Programmieren ist gekapselt weil der code nur die klasse preis geben muss aber nicht die genauen daten
+    Darunter versteht man das Daten nicht Preisgegeben werden müssen, man weiß zwar das sie da sind aber nicht was diese entsprechen
 5. Was ist Vererbung?
-    funktionen in einer klasse können sichuntereinander verschiedene daten vererben ohne sie in jeder funktion neu bestimmen zu müssen
+    Vererbung ist wenn eine höhere Klasse (Basis Klasse) Attribute oder Methoden einer neuen Klasse (Subklasse) weiter gibt
 6. Was versteht man unter Refactoring?
     darunter versteht man einen code zu verbesseren ohne etwas an seinen funktionen zu ändern
 7. Welche Rolle spielt das Refactoring bzgl. der Wiederverwendung von Code?
-    Dadurch kann code einfacher/verständlicher geschrieben werden so das er für andere Projekte (oder auch im selben code) wieder verwendet werden kann.
+    Dadurch das der code einfacher/verständlicher geschrieben ist kann er für andere Projekte (oder auch im selben code) einfacher wieder verwendet werden.
 8. Für was gibt es die `__init__`-Funktion in einer Klasse?
-    um variablen daten für funktionen in der klasse frei zu geben damit sie diese einfacher aufrufen können
+    Die Funktion dient dazu die Anfangszustände der Objekte festzulegen
 9. Für was braucht man den `self` Parameter?
     damit die durch __init__ gespeicherten daten in eine variable eingespeichert werden können
 10. Wie schreibt man einzeilige und mehrzeilige Kommentare in Python?
@@ -89,7 +89,7 @@ if x = 5:
 
 
 ### Code 4 
-"[i]" geht nur mit listen aber numbers ist keine liste
+Tupel sind nicht änderbar (numers[i] kann den wer nicht austauschen)
 ```python
 numbers = (1, 2, 3, 4, 5) 
 for i in range(len(numbers)):
