@@ -9,12 +9,12 @@
 1. Was sind die Unterschiede der Datentypen?
     -Json - wird mit [], {}  geschreieben
     -XML - wird mit <, >, geschrieben 
-    -YAML - einrückungen durch leerzeichen nicht tab
+    -YAML - einrückungen durch leerzeichen (nicht tab)
 
 2. Was sind Vor- und Nachteile der jeweiligen Dateiformate?
-    -Json - Sehr gut lesbar          | keine Kommentare erlaubt
-    -XML -  Gut validierbar          | Mehr Text was es schwer zu lesen macht
-    -YAML - Lesbar, unterstützt Kommentare | einrückungen k
+    -Json - Sehr gut lesbar                | keine Kommentare erlaubt
+    -XML -  Gut validierbar                | Mehr Text was es schwer zu lesen macht
+    -YAML - Lesbar, unterstützt Kommentare | einrückungen kritisch (fehleranfällig)
 
 3. Wofür wird XML verwendet?
     -Daten bearbeitung und Speicherung
