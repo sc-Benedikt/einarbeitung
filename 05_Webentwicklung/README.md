@@ -22,6 +22,10 @@ Dieses Projekt zielt darauf ab, eine Webanwendung mit Flask aufzusetzen und sie 
 
 ## Fragen und Antworten
 - Was ist Webentwicklung? Erkläre den Prozess des "Bauens" von Webseiten oder Anwendungen für das Internet.
+    Webentwicklung ist die Erstellung, Wartung und Optimirerung von Websiten die man über den Browser erreicht.
+    Der Bauprozess wird in verschiedene Punkte unterteil:
+    Planung, Design Entwicklung, Technische Umsetzung, Testing
+
 - Was ist ein Framework und was ein SDK? Unterscheide zwischen den beiden und erkläre ihre Rolle in der Entwicklung.
 - Welche Sprachen und Frameworks spielen eine Rolle in der Webentwicklung? Nenne Beispiele und ihre Verwendungszwecke.
 - Was ist Jinja2 und wofür kann ich es verwenden? Erläutere die Verwendung von Jinja2 in Flask.
