@@ -27,6 +27,9 @@ Dieses Projekt zielt darauf ab, eine Webanwendung mit Flask aufzusetzen und sie 
     Planung, Design Entwicklung, Technische Umsetzung, Testing
 
 - Was ist ein Framework und was ein SDK? Unterscheide zwischen den beiden und erkläre ihre Rolle in der Entwicklung.
+    Framework ist ein gerüst wo man nur noch die daten hinzufügen muss und SDK sind verschiedene Bauteile die man zusammen setzen muss.
+    Ihre rolle in der Entwicklung ist es den Prozess zu beschleunigen und die Qualität zu erhöhen ohne großen Aufwand daran zu setzen etwas neues zu Erstellen
+    
 - Welche Sprachen und Frameworks spielen eine Rolle in der Webentwicklung? Nenne Beispiele und ihre Verwendungszwecke.
 - Was ist Jinja2 und wofür kann ich es verwenden? Erläutere die Verwendung von Jinja2 in Flask.
 - Was sind die Flask HTTP-Methoden, welche gibt es und wann brauche ich welche? Beschreibe die verschiedenen HTTP-Methoden in Flask und ihre Verwendung.
