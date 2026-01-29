@@ -9,48 +9,40 @@
 <style>
 
 body {
-    background-image: url(https://images.vexels.com/media/users/3/144683/raw/98d47d68dbb07f52179138cddc76a5ac-abstrakter-minimalistischer-weisser-hintergrund.jpg);
+    background-color:rgb(51, 51, 51);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100% ;
+    background-size: 100% 110% ;
+    color: white;
+    font-family: monospace;
+    font-size: large;
+
 }
-.button_countrie{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+
+.button{
+    background-color: rgb(63, 63, 63);
+    color: white;
+    border-color: white;
     border-width: 3px;
     border-radius: 10px;
     width: 10%;;
     position: absolute ;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-
-}
-.button_city{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border-width: 3px;
-    border-radius: 10px;
-    width: 10%;
-    position: absolute ;
-    left: 50%;
-    
-    
-}
-    
-.button_test{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border-width: 3px;
-    border-radius: 10px;
-    width: 10%;
-    position: absolute ;
-    top: 50%;
-    right: 30%;
     transform: translate(-50%, -50%);
 }
 
+.container{
+    display: flex;
+    background-color: rgba(30, 143, 255, 0);
+}
 
+.container div{
+background-color: rgba(0, 128, 0, 0);
+margin: auto;
+padding: auto;
+font-size: auto;
+margin-top: 20%;
+
+}
 
 </style>
 </head>
@@ -59,33 +51,36 @@ body {
 
 <body>
 
+<h2>Auswählen</h2>
 
-<form action="/citys">
-    <button class="button_city">
-        <h1>Citys</h1>
-    </button>
-</form>
+<div class="container">
 
-<br>
+    <div>
+    <form action="/infos_num_1">
+        <button class="button">
+            <h1>{{daten1["ueberschrift"]}}</h1>
+        </button>
+    </form>
+    </div>
 
-<form action="/countries">
-    <button 
-    class="button_countrie" 
-    position: relativ;
-    >
-        <h1>Countries</h1>
-    </button>
-</form>
+    <div>
+    <form action="/infos_num_2" >
+        <button class="button">
+            <h1>{{daten2["ueberschrift"]}}</h1>
+        </button>
+    </form>
+    </div>
 
+    <div>
+    <form action="/infos_num_3" >
+        <button class="button">
+            <h1>{{daten3["ueberschrift"]}}</h1>
+        </button>
+    </form>
+    </div>
 
-<form action="/countries">
-    <button 
-    class="button_test" 
-    position: relativ;
-    >
-        <h1>test</h1>
-    </button>
-</form>
+</div>
+
 </body>
 
 

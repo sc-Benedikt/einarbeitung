@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head>
+<title>
+    {{ueberschrift}}
+</title>
+
+
+<style>
+.button_back {
+    background-color: rgb(63, 63, 63);
+    color: white;
+    border-width: 3px;
+    border-color: white;
+    width: 10%;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 10px;
+
+}
+
+body {
+    background-color: rgb(63, 63, 63);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 110% ;
+    color: white;
+    font-family: monospace;
+    font-size: large;
+
+}
+
+.text_formation{
+    overflow: scroll;
+    height: 762px;
+    width: 450px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+.container{
+    display:flex;
+    background-color: rgba(0, 128, 255, 0);
+}
+
+.container div{
+    background-color: rgba(1, 128, 1, 0);
+    margin: auto;
+    padding: auto;
+    font-size: auto;
+}
+
+</style>
+</head>
+
+<h1>{{ueberschrift}}</h1>
+
+<body>
+
+<form action="/">
+    <button class="button_back">
+        <h2>back</h2>
+    </button>
+</form>
+
+
+<div class="container">
+    <div class="text_formation example">
+        <h2>{{info_text_1["header"]}}</h2>
+        <p>{{info_text_1["text"]}}</p>
+    </div>
+
+    <div class = "text_formation example">
+        <h2>{{info_text_2["header"]}}</h2>
+        <p>{{info_text_2["text"]}}</p>
+    </div>
+
+    <div class = "text_formation example">
+        <h2>{{info_text_3["header"]}}</h2>
+        <p>{{info_text_3["text"]}}</p>
+    </div>
+
+    
+
+
+</div>
+</body>
