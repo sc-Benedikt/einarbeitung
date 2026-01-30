@@ -74,39 +74,12 @@ def logout():
     return redirect("/")
 
 
-@app.route("/infos_num_1")
+@app.route("/info_site", methods=["POST", "GET"])
 def infos1():
-    session["choice"]= "info1"
+    session["choice"]= request.form["choice"]
     text_1, text_2, text_3, ueberschrift = daten_umwandeln()
     return render_template(
-        "infos_num_1.html",
-        ueberschrift=ueberschrift,
-        info_text_1=text_1,
-        info_text_2=text_2,
-        info_text_3=text_3,
-    )
-
-
-@app.route("/infos_num_2")
-def infos2():
-    session["choice"]= "info2"
-    text_1, text_2, text_3, ueberschrift = daten_umwandeln()
-    return render_template(
-        "infos_num_2.html",
-        ueberschrift=ueberschrift,
-        info_text_1=text_1,
-        info_text_2=text_2,
-        info_text_3=text_3,
-    )
-
-
-@app.route("/infos_num_3")
-def infos3():
-    session["choice"]= "info3"
-    text_1, text_2, text_3, ueberschrift = daten_umwandeln()
-
-    return render_template(
-        "infos_num_3.html",
+        "info_site.html",
         ueberschrift=ueberschrift,
         info_text_1=text_1,
         info_text_2=text_2,

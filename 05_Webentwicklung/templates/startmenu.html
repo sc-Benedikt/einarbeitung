@@ -70,24 +70,24 @@ margin-top: 20%;
 <div class="container">
 
     <div>
-    <form action="/infos_num_1">
-        <button class="button">
+    <form action="/info_site" method="post">
+        <button class="button" name="choice" value="info1">
             <h1>{{daten1["ueberschrift"]}}</h1>
         </button>
     </form>
     </div>
 
     <div>
-    <form action="/infos_num_2" >
-        <button class="button">
+    <form action="/info_site" method="post">
+        <button class="button"  name="choice" value="info2">
             <h1>{{daten2["ueberschrift"]}}</h1>
         </button>
     </form>
     </div>
 
     <div>
-    <form action="/infos_num_3" >
-        <button class="button">
+    <form action="/info_site" method="post">
+        <button class="button"  name="choice" value="info3">
             <h1>{{daten3["ueberschrift"]}}</h1>
         </button>
     </form>
@@ -103,8 +103,6 @@ margin-top: 20%;
     </button>
     </form>
 </div>
-
-
 
 </body>
 
