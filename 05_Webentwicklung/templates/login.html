@@ -15,21 +15,80 @@ body {
     font-size: large;
 }
 
+input{
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.425);
+}
+
+.container{
+    display: flex;
+    background-color: rgba(30, 143, 255, 0);
+    margin-top: 10%;
+}
+
+.container div{
+background-color: rgba(0, 128, 0, 0);
+margin: auto;
+padding: auto;
+font-size: auto;
+margin-top: 5%;
+
+
+
+}
+
+.button{
+    background-color: rgb(63, 63, 63);
+    color: white;
+    border-color: white;
+    border-width: 3px;
+    border-radius: 10px;
+    width: 10%;;
+    position: absolute ;
+    font-size: 50px;
+}
+
+.eingabe_feld{
+
+    font-size: 50px;
+    color: white;
+    border-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: rgba(250, 235, 215, 0);
+  
+}
+
+
 </style>
 </head>
 
 <body>
+
+<div class="container">
+
+ <div>
+    
     <form action="/", method="post">
-        <input  type="text" name="name" placeholder="Dein Name">
-        <input type="password" name="password" placeholder="Dein Passwort">
-        <button type="submit">Login</button>
+
+        <div>
+        <input  type="text" name="name" placeholder="Dein Name" class="eingabe_feld">
+        </div>
+
+        <div>
+        <input type="password" name="password" placeholder="Dein Passwort" class="eingabe_feld">
+        </div>
+
+        <div>
+        <button type="submit" class="button">Login</button>
+        </div>
+
+
     </form>
 
+</div>
 
-
-
+</div>
 
 </body>
-
-
-
