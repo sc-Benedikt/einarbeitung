@@ -36,11 +36,23 @@ body {
     width: 450px;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 5%;
+    padding: 10px;
 }
 
 .example::-webkit-scrollbar {
     display: none;
+}
+
+.container{
+    display:flex;
+    background-color: rgba(0, 128, 255, 0);
+}
+
+.container div{
+    background-color: rgba(1, 128, 1, 0);
+    margin: auto;
+    padding: auto;
+    font-size: auto;
 }
 
 
@@ -57,19 +69,21 @@ body {
     </button>
 </form>
 
-<div class="text_formation example" style="left: 20%;">
-    <h2>{{info_text_1["header"]}}</h2>
-    <p>{{info_text_1["text"]}}</p>
-</div>
+<div class="container">
+    <div class="text_formation example">
+        <h2>{{info_text_1["header"]}}</h2>
+        <p>{{info_text_1["text"]}}</p>
+    </div>
 
-<div class = "text_formation example" style="left: 50%;">
-    <h2>{{info_text_2["header"]}}</h2>
-    <p>{{info_text_2["text"]}}</p>
-</div>
+    <div class = "text_formation example">
+        <h2>{{info_text_2["header"]}}</h2>
+        <p>{{info_text_2["text"]}}</p>
+    </div>
 
-<div class = "text_formation example" style="left: 80%;">
-    <h2>{{info_text_3["header"]}}</h2>
-    <p>{{info_text_3["text"]}}</p>
-</div>
+    <div class = "text_formation example">
+        <h2>{{info_text_3["header"]}}</h2>
+        <p>{{info_text_3["text"]}}</p>
+    </div>
 
+</div>
 </body>
