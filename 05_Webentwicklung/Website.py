@@ -43,14 +43,15 @@ def login():
 
             username = username.replace(" ", "")
             userpassword = userpassword.replace(" ", "")
-            if request.form.get("password") == "":
+            if userpassword == "":
                 return redirect("/")
-  
+                
+
             with open(USER_FILE, "r", encoding="utf - 8") as f:
                 users = json.load(f)
                 users[username] = userpassword
 
-        
+
                 with open(USER_FILE, "w") as f:
                 
                     json.dump(users, f)
