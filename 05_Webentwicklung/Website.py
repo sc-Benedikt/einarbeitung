@@ -11,7 +11,9 @@ app.secret_key = "ich_weiß_keinen_guten_key"
 
 
 def daten_nehmen():
-    with open("/home/git_repo/einarbeitung/05_Webentwicklung/info_texte.json") as file:
+    with open(
+        "/home/git_repo/einarbeitung/05_Webentwicklung/info_texte.json", "r"
+    ) as file:
         web_site_daten = json.load(file)
         return web_site_daten
 
@@ -26,21 +28,42 @@ def daten_umwandeln():
     ueberschrift = daten.get("ueberschrift")
     return text_1, text_2, text_3, ueberschrift
 
+
 @app.route("/", methods=["GET", "POST"])
 def login():
     name = session.get("username")
 
     if name == None:
+        if request.method == "POST" and request.form.get("password") == request.form.get("password_2"):
 
-        if request.method == "POST":
+
 
             username = request.form["name"]
             userpassword = request.form["password"]
 
             username = username.replace(" ", "")
             userpassword = userpassword.replace(" ", "")
-            print(username)
-            print(userpassword)
+            if request.form.get("password") == "":
+                return redirect("/")
+  
+            with open(USER_FILE, "r", encoding="utf - 8") as f:
+                users = json.load(f)
+                users[username] = userpassword
+
+        
+                with open(USER_FILE, "w") as f:
+                
+                    json.dump(users, f)
+             
+                    return redirect("/")
+
+        elif request.method == "POST":
+
+            username = request.form["name"]
+            userpassword = request.form["password"]
+
+            username = username.replace(" ", "")
+            userpassword = userpassword.replace(" ", "")
             with open(USER_FILE, "r", encoding="utf - 8") as f:
                 users = json.load(f)
 
@@ -50,6 +73,7 @@ def login():
                 return redirect("/auswahl")
             else:
                 return render_template("/login.html")
+
         else:
             return render_template("/login.html")
     else:
@@ -58,7 +82,7 @@ def login():
 
 @app.route("/auswahl")
 def hello_world():
-    
+
     web_site_daten = daten_nehmen()
     return render_template(
         "startmenu.html",
@@ -76,7 +100,7 @@ def logout():
 
 @app.route("/info_site", methods=["POST", "GET"])
 def infos1():
-    session["choice"]= request.form["choice"]
+    session["choice"] = request.form["choice"]
     text_1, text_2, text_3, ueberschrift = daten_umwandeln()
     return render_template(
         "info_site.html",
@@ -85,3 +109,8 @@ def infos1():
         info_text_2=text_2,
         info_text_3=text_3,
     )
+
+
+@app.route("/new_acc")
+def creat_new_acc():
+    return render_template("new_acc.html")
