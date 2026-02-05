@@ -56,7 +56,6 @@
             border-radius: 10px;
             position: fixed;
             bottom: 10px;
-            right: 10px;
 
         }
     </style>
@@ -72,24 +71,24 @@
 
         <div>
             <form action="/info_site" method="post">
-                <button class="button" name="choice" value="info1">
-                    <h1>{{daten1["ueberschrift"]}}</h1>
+                <button class="button" name="choice" value="1">
+                    <h1>{{header1}}</h1>
                 </button>
             </form>
         </div>
 
         <div>
             <form action="/info_site" method="post">
-                <button class="button" name="choice" value="info2">
-                    <h1>{{daten2["ueberschrift"]}}</h1>
+                <button class="button" name="choice" value="2">
+                    <h1>{{header2}}</h1>
                 </button>
             </form>
         </div>
 
         <div>
             <form action="/info_site" method="post">
-                <button class="button" name="choice" value="info3">
-                    <h1>{{daten3["ueberschrift"]}}</h1>
+                <button class="button" name="choice" value="3">
+                    <h1>{{header3}}</h1>
                 </button>
             </form>
         </div>
@@ -101,6 +100,14 @@
         <form action="/logout">
             <button class="button_back">
                 <h2>logout</h2>
+            </button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/delete" >
+            <button class="button_back" style="right: 10px;">
+                <h2>Account Löschen</h2>
             </button>
         </form>
     </div>

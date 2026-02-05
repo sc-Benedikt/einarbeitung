@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        Text schreiben
+    </title>
+
+
+    <style>
+        body {
+            background-image: url(https://www.shutterstock.com/image-vector/dark-blue-pink-gradient-background-260nw-1637269939.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 110%;
+            color: white;
+            font-family: monospace;
+            font-size: large;
+        }
+
+        input {
+            outline: none;
+            background-color: rgba(0, 0, 0, 0.425);
+        }
+
+        .container {
+            display: flex;
+            margin-top: 10%;
+        }
+
+        .container div { 
+            margin: auto;
+            padding: auto;
+            font-size: auto;
+            margin-top: 5%;
+
+
+
+        }
+
+        .button {
+            background-color: rgba(0, 0, 0, 0.342);
+            color: white;
+            border-color: white;
+            border-width: 3px;
+            border-radius: 10px;
+
+            font-size: 50px;
+
+
+
+
+        }
+
+        .eingabe_feld {
+
+            font-size: 50px;
+            color: white;
+            border-color: white;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background-color: rgba(250, 235, 215, 0);
+
+
+        }
+
+        input:not(:placeholder-shown) {
+            background-color: rgba(0, 128, 0, 0);
+        }
+
+
+        .button_back {
+            background-color: rgb(0, 0, 0, 0.342);
+        color: white;
+            border-width: 3px;
+            border-color: white;
+            width: 10%;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 10px;
+
+        }
+        .drop_down {
+            background-color: rgb(0, 0, 0, 0.342) ;
+            border-radius: 10px;
+            border-color: white;
+         
+            font-size: 100px;
+            
+        }
+    </style>
+</head>
+
+
+
+    <form action="/">
+        <button class="button_back" style="left: 10px;">
+            <h2>back</h2>
+        </button>
+    </form>
+
+    <div class="container">
+        <form action="/daten_speichern", method="post">
+            <div>
+                <input type="text" autocomplete="off" name="text" placeholder="Neuer Text" class="eingabe_feld">
+            </div>
+
+            <div>
+                <lable for="change_text" class="drop_down">Text zum ändern wählen:</label>
+                    <select id="change_text" name="change_text">
+                    <option value="info_text_1">{{info_header_1}}</option>
+                    <option value="info_text_2">{{info_header_2}}</option>
+                    <option value="info_text_3">{{info_header_3}}</option>
+                    <option value="info_text_4">Neuer Text</option>
+                </select>
+            </div>
+
+            <button class="button_back" style="right: 10px;">
+                <h2>Speichern</h2>
+            </button>
+        </form>
+    </div>
