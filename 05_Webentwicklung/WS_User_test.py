@@ -37,7 +37,7 @@ def get_data(data):
 
 with open ("/home/git_repo/einarbeitung/05_Webentwicklung/templates/info_site.html") as f:
     data = f.read()
-print (len(data))
+
 
 if len(data) <= 1693:
     print("ja")
@@ -72,7 +72,30 @@ print(anzahl_spalten)
 
 # connection.commit()
 
-cursor.execute("UPDATE infos SET big_header = 'Cities' WHERE big_header = 'Citys'")
+command6 = ("UPDATE infos SET big_header = 'Cities' WHERE big_header = 'Citys'")
+cursor.execute("SELECT small_header_1 FROM infos")
 
+if "London" in ():
+    print("lol")
 connection.commit()
+
+
+
+anzahl_spalten = len(connection.execute("PRAGMA table_info(infos)").fetchall()) // 2
+anzahl_spalten -= 1
+all_options = ""
+for i in range(1, anzahl_spalten + 1):
+    small_header = get_data(f"small_header_{i}")
+
+    info_block = f"""
+    <option value="info_text_{i}">{small_header[0][0]}</option>
+    """
+
+    all_options += info_block
+    
+
+anzahl_spalten = len(connection.execute("PRAGMA table_info(infos)").fetchall()) // 2
+
+all_options = ""
+print(anzahl_spalten)
 print("fertig")

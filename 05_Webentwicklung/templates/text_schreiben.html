@@ -22,18 +22,19 @@
             background-color: rgba(0, 0, 0, 0.425);
         }
 
+
         .container {
             display: flex;
-            margin-top: 10%;
+            background-color: rgba(30, 143, 255, 0);
         }
 
-        .container div { 
+
+        .container div {
+            background-color: rgba(0, 0, 0, 0.342);
             margin: auto;
             padding: auto;
             font-size: auto;
-            margin-top: 5%;
-
-
+       
 
         }
 
@@ -43,7 +44,6 @@
             border-color: white;
             border-width: 3px;
             border-radius: 10px;
-
             font-size: 50px;
 
 
@@ -53,7 +53,8 @@
 
         .eingabe_feld {
 
-            font-size: 50px;
+            font-size: 60px;
+            height: 600px;
             color: white;
             border-color: white;
             border-top: none;
@@ -71,7 +72,7 @@
 
         .button_back {
             background-color: rgb(0, 0, 0, 0.342);
-        color: white;
+            color: white;
             border-width: 3px;
             border-color: white;
             width: 10%;
@@ -80,17 +81,18 @@
             bottom: 10px;
 
         }
+
         .drop_down {
             display: flex;
-            align-items: center;   
+            align-items: center;
             padding: 10px 16px;
-            font-size: 28px;       
+            font-size: 28px;
             color: white;
         }
 
         .drop_down select {
-            font-size: inherit;  
-            height: auto;        
+            font-size: inherit;
+            height: auto;
             padding: 4px 10px;
             box-sizing: border-box;
             border-radius: 4px;
@@ -100,30 +102,28 @@
 
 
 
-    <form action="/">
-        <button class="button_back" style="left: 10px;">
-            <h2>back</h2>
+<form action="/">
+    <button class="button_back" style="left: 10px;">
+        <h2>back</h2>
+    </button>
+</form>
+
+<div class="container">
+    <form action="/daten_speichern" , method="post">
+        <div>
+            <textarea name="text" id="text" autocomplete="off" placeholder="Neuer Text" class="eingabe_feld"></textarea>
+        </div>
+
+        <div>
+            <lable for="change_text" class="drop_down">Text zum ändern wählen:</label>
+                <select id="change_text" name="change_text">
+                    {{options | safe}}
+                    <option value="neuer_text">Neuer Text</option>
+                </select>
+        </div>
+
+        <button class="button_back" style="right: 10px;">
+            <h2>Speichern</h2>
         </button>
     </form>
-
-    <div class="container">
-        <form action="/daten_speichern", method="post">
-            <div>
-                <input type="text" autocomplete="off" name="text" placeholder="Neuer Text" class="eingabe_feld">
-            </div>
-
-            <div>
-                <lable for="change_text" class="drop_down">Text zum ändern wählen:</label>
-                <select id="change_text" name="change_text">
-                    <option value="info_text_1">{{info_header_1}}</option>
-                    <option value="info_text_2">{{info_header_2}}</option>
-                    <option value="info_text_3">{{info_header_3}}</option>
-                    <option value="info_text_4">Neuer Text</option>
-                </select>
-            </div>
-
-            <button class="button_back" style="right: 10px;">
-                <h2>Speichern</h2>
-            </button>
-        </form>
-    </div>
+</div>

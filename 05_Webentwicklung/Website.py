@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session, redirect, request
-import json, sqlite3, math
+import json, sqlite3
 
 
 connection = sqlite3.connect(
@@ -48,12 +48,15 @@ def login():
         userpassword = userpassword.replace(" ", "")
         if userpassword == "":
             return redirect("/")
-
-        command_add_user = "INSERT INTO users (username, userpassword) VALUES ( ?, ?)"
-        values = (username, userpassword)
-        cursor.execute(command_add_user, values)
-        connection.commit()
-        return redirect("/")
+        # "INSERT INTO users (user, p) VALUERS (?, ?)"
+        try:
+            command_add_user = "INSERT INTO users (username, userpassword) VALUES ( ?, ?)"
+            values = (username, userpassword)
+            cursor.execute(command_add_user, values)
+            connection.commit()
+            return redirect("/")
+        except sqlite3.IntegrityError:
+            redirect("/")
 
     elif request.method == "POST":
 
@@ -121,8 +124,8 @@ def infos1():
         <p>{info_text[0][0]}</p>
         </div>
         """
-
-        all_info_blocks += info_block
+        if info_text != "0" and small_header != "0":
+            all_info_blocks += info_block
 
     return render_template(
         "info_site.html",
@@ -160,11 +163,25 @@ def finall_delete():
 
 @app.route("/daten_aendern")
 def change_data():
+    connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db")
+    cursor = connection.cursor()
+    
+    anzahl_spalten = len(connection.execute("PRAGMA table_info(infos)").fetchall()) // 2
+    anzahl_spalten -= 1
+    all_options = ""
+    for i in range(1, anzahl_spalten + 1):
+        small_header = get_data(f"small_header_{i}")
+
+        info_block = f"""
+        <option value="info_text_{i}">{small_header[0][0]}</option>
+        """
+
+        all_options += info_block
+
+
     return render_template(
         "/text_schreiben.html",
-        info_header_1=get_data("small_header_1")[0][0],
-        info_header_2=get_data("small_header_2")[0][0],
-        info_header_3=get_data("small_header_3")[0][0],
+        options = all_options
     )
 
 
@@ -174,7 +191,7 @@ def safe_daten():
         "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
     )
     cursor = connection.cursor()
-    if request.form.get("change_text") in ("info_text_1", "info_text_2", "info_text_3"):
+    if request.form.get("change_text") != "neuer_text":
         text = request.form.get("text")
         number = session.get("choice")
         text_choice = request.form.get("change_text")
@@ -183,7 +200,21 @@ def safe_daten():
         )
         connection.commit()
         return render_template("/login.html")
+    
+    connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db")
+    cursor = connection.cursor()
+    text_daten = request.form.get("text")
+    header_daten = request.form.get("header")
+    neue_info_num = len(connection.execute("PRAGMA table_info(infos)").fetchall()) // 2
+  
 
-    cursor.execute("ALTER TABLE infos ADD COLUMN  TEXT;")
-    return redirect("/info_site")
+    for infos in range (1, 3, +1):
+        if header_daten and text_daten:
+            values = (f'{header_daten}', f'{text_daten}')
+        else:
+            values = ('0', '0', f'{infos}')
+        cursor.execute(f"""UPDATE infos SET small_header_{neue_info_num} = ?, info_text_{neue_info_num} = ? WHERE info_id = ?""", (values))
+       
+    
+    return redirect("/")
 
