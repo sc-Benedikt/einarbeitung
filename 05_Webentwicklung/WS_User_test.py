@@ -7,20 +7,18 @@ connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User
 cursor = connection.cursor()
 
 command1 = """CREATE TABLE IF NOT EXISTS
-    infos(info_id INTEGER PRIMARY KEY AUTOINCREMENT, big_header TEXT, 
-    small_header_1 TEXT, info_text_1 TEXT, 
-    small_header_2 TEXT, info_text_2 TEXT, 
-    small_header_3 TEXT, info_text_3 TEXT)"""
+    info_Persons (info_id INTEGER PRIMARY KEY AUTOINCREMENT, header TEXT, text TEXT) 
+    """
 
-command2 = ("INSERT INTO INFOS (big_header, small_header_1, info_text_1, small_header_2, info_text_2, small_header_3, info_text_3) VALUES (?, ?, ?, ?, ?, ?, ?)")
-values = ('Personen', 'Daniil', 'uw iach', 'Nelson', 'Free nelson', 'Philipp', 'asdfghjklö')
+command2 = ("INSERT INTO info_Persons (header, text) VALUES (?, ?)")
+values = ('Philipp', 'hebsinde keu')
 command3 = "SELECT big_header FROM infos"
 command5 = "UPDATE infos SET big_header = 'Cities' WHERE big_header = 'Citys'"
 
 
-
-
-
+cursor.execute(f"SELECT COUNT(*) FROM info_Cities")
+a = cursor.fetchone()[0]
+print(a)
 
 
 text = "ich mag autos"
@@ -46,12 +44,12 @@ a = 9 / 2
 float(a)
 print(math.floor(a))
 
-anzahl_spalten = math.floor(float(len(connection.execute("PRAGMA table_info(infos)").fetchall())))
 
 
+cursor.execute(f"SELECT COUNT(*) FROM info_Countries ")
 
 
-print(anzahl_spalten)
+cursor.execute(f"DELETE from info_Countries WHERE text = ?", ("das",))
 
 # cursor.execute("DROP TABLE IF EXISTS infos")
 
@@ -97,5 +95,4 @@ for i in range(1, anzahl_spalten + 1):
 anzahl_spalten = len(connection.execute("PRAGMA table_info(infos)").fetchall()) // 2
 
 all_options = ""
-print(anzahl_spalten)
 print("fertig")

@@ -15,6 +15,8 @@
             color: white;
             font-family: monospace;
             font-size: large;
+            margin: 0;
+
         }
 
         input {
@@ -25,16 +27,17 @@
 
         .container {
             display: flex;
-            background-color: rgba(30, 143, 255, 0);
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            background-color: rgba(31, 143, 0, 0);
         }
 
 
         .container div {
-            background-color: rgba(0, 0, 0, 0.342);
-            margin: auto;
-            padding: auto;
-            font-size: auto;
-       
+            margin-top: auto;
+            background-color: rgba(0, 128, 0, 0);
+
 
         }
 
@@ -84,10 +87,11 @@
 
         .drop_down {
             display: flex;
+            justify-content: center;
             align-items: center;
-            padding: 10px 16px;
-            font-size: 28px;
+            font-size: 50px;
             color: white;
+
         }
 
         .drop_down select {
@@ -108,22 +112,34 @@
     </button>
 </form>
 
-<div class="container">
-    <form action="/daten_speichern" , method="post">
+<form action="/daten_change" method="post">
+
+    <div class="container">
         <div>
             <textarea name="text" id="text" autocomplete="off" placeholder="Neuer Text" class="eingabe_feld"></textarea>
         </div>
 
         <div>
-            <lable for="change_text" class="drop_down">Text zum ändern wählen:</label>
-                <select id="change_text" name="change_text">
-                    {{options | safe}}
-                    <option value="neuer_text">Neuer Text</option>
-                </select>
+            <textarea name="header" id="header" autocomplete="off" placeholder="Neue Übershrift"
+                class="eingabe_feld"></textarea>
         </div>
+    </div>
 
-        <button class="button_back" style="right: 10px;">
+
+    <lable for="text_to_change" class="drop_down">Text zum ändern wählen:</label>
+        <select id="text_to_change" name="text_to_change">
+            {{options | safe}}
+            <option value="neuer_text">Neuer Text</option>
+        </select>
+        
+
+        <button class="button_back" style=" right: 220px;" name="option" value="delete" >
+            <h2>Löschen</h2>
+        </button>
+
+
+
+        <button class="button_back" style="right: 10px;" name="option" value="safe">
             <h2>Speichern</h2>
         </button>
-    </form>
-</div>
+</form>
