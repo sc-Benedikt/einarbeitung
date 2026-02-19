@@ -88,13 +88,11 @@ def hello_world():
         "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
     )
     cursor = connection.cursor()
-    cursor.execute("SELECT big_header FROM infos")
-    headers = cursor.fetchall()
     return render_template(
         "startmenu.html",
-        header1=headers[0][0],
-        header2=headers[1][0],
-        header3=headers[2][0],
+        header1="citie",
+        header2="Countrie",
+        header3="Persons",
     )
 
 
