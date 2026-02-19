@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session, redirect, request
-import json, sqlite3
+import json, sqlite3, hashlib
 
 
 connection = sqlite3.connect(
@@ -21,10 +21,10 @@ def get_data(data: str, num):
     )
     cursor = connection.cursor()
     choice_text = session.get("choice")
-    cursor.execute(f"SELECT {data} FROM {choice_text} WHERE rows = {num}")
+    cursor.execute(f"SELECT {data} FROM {choice_text}")
     daten = cursor.fetchall()
     if daten != None:
-        return daten
+        return daten[num]
     else:
         return ""
 
@@ -54,7 +54,7 @@ def login():
     
         try:
             command_add_user = "INSERT INTO users (username, userpassword) VALUES ( ?, ?)"
-            values = (username, userpassword)
+            values = (username, (hashlib.sha256(userpassword.encode()).hexdigest()))
             cursor.execute(command_add_user, values)
             connection.commit()
             return redirect("/")
@@ -72,7 +72,7 @@ def login():
         cursor.execute("SELECT username, userpassword FROM users")
         anmelde_daten = cursor.fetchall()
         for i in anmelde_daten:
-            if username == i[0] and userpassword == i[1]:
+            if username == i[0] and (hashlib.sha256(userpassword.encode()).hexdigest()) == i[1]:
                 session["username"] = username
                 session["password"] = userpassword
                 return redirect("/auswahl")
@@ -117,14 +117,14 @@ def infos1():
     cursor.execute(f"SELECT COUNT(*) FROM {request.form.get('choice')}")
     anzahl_spalten = cursor.fetchone()[0]
     all_info_blocks = ""
-    for i in range(1, anzahl_spalten + 1):
+    for i in range(anzahl_spalten):
         text = get_data(f"text", i)
         header = get_data(f"header", i)
         info_block = f"""
         
         <div class="text_formation example">
-        <h2>{header[0][0]}</h2>
-        <p>{text[0][0]}</p>
+        <h2>{header[0]}</h2>
+        <p>{text[0]}</p>
         </div>
         """
         if text != "0" and header != "0":
@@ -172,8 +172,8 @@ def change_data():
     cursor.execute(f"SELECT COUNT(*) FROM {session.get('choice')}")
     anzahl_spalten = cursor.fetchone()[0]
     all_options = ""
-    for i in range(1, anzahl_spalten + 1):
-        small_header = get_data(f"header", i)[0][0]
+    for i in range(anzahl_spalten):
+        small_header = get_data(f"header", i)[0]
 
         info_block = f"""
         <option value="{small_header}">{small_header}</option>
@@ -207,7 +207,7 @@ def daten_change():
                 f"UPDATE '{info_option}' SET 'text' = '{text}', 'header' = '{header}' WHERE header = '{text_choice}'"
             )
             connection.commit()
-            return render_template("/login.html")
+            return redirect("/")
         
         connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db")
         cursor = connection.cursor()

@@ -1,5 +1,6 @@
-import sqlite3, flask, math
+import sqlite3, flask, math, hashlib
 from flask import session
+
 
 
 connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db")
@@ -95,4 +96,42 @@ for i in range(1, anzahl_spalten + 1):
 anzahl_spalten = len(connection.execute("PRAGMA table_info(infos)").fetchall()) // 2
 
 all_options = ""
+
+
+def get_data(data: str, num):
+
+    connection = sqlite3.connect(
+        "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
+    )
+    cursor = connection.cursor()
+   
+    cursor.execute(f"SELECT {data} FROM info_Cities")
+    daten = cursor.fetchall()
+    if daten != None:
+        return daten[num]
+    else:
+        return ""
+
+cursor.execute(f"SELECT COUNT(*) FROM info_Cities")
+anzahl_spalten = cursor.fetchone()[0]
+
+
+data = "Password123"
+
+hash_object = hashlib.sha256(data.encode()).hexdigest()
+
+
+user_input = input("password:")
+iput_pw = hashlib.sha256(user_input.encode()).hexdigest()
+
+if hash_object == iput_pw:
+    print("tmm tmm")
+
+print(hash_object)
+print(iput_pw)
 print("fertig")
+
+
+
+
+
