@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session, redirect, request
-import json, sqlite3, hashlib
+import sqlite3, hashlib
 
 
 connection = sqlite3.connect(
@@ -51,9 +51,11 @@ def login():
         userpassword = userpassword.replace(" ", "")
         if userpassword == "":
             return redirect("/")
-    
+
         try:
-            command_add_user = "INSERT INTO users (username, userpassword) VALUES ( ?, ?)"
+            command_add_user = (
+                "INSERT INTO users (username, userpassword) VALUES ( ?, ?)"
+            )
             values = (username, (hashlib.sha256(userpassword.encode()).hexdigest()))
             cursor.execute(command_add_user, values)
             connection.commit()
@@ -72,7 +74,10 @@ def login():
         cursor.execute("SELECT username, userpassword FROM users")
         anmelde_daten = cursor.fetchall()
         for i in anmelde_daten:
-            if username == i[0] and (hashlib.sha256(userpassword.encode()).hexdigest()) == i[1]:
+            if (
+                username == i[0]
+                and (hashlib.sha256(userpassword.encode()).hexdigest()) == i[1]
+            ):
                 session["username"] = username
                 session["password"] = userpassword
                 return redirect("/auswahl")
@@ -84,10 +89,6 @@ def login():
 
 @app.route("/auswahl")
 def hello_world():
-    connection = sqlite3.connect(
-        "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
-    )
-    cursor = connection.cursor()
     return render_template(
         "startmenu.html",
         header1="citie",
@@ -124,7 +125,9 @@ def infos1():
         <h2>{header[0]}</h2>
         <p>{text[0]}</p>
         </div>
+
         """
+
         if text != "0" and header != "0":
             all_info_blocks += info_block
 
@@ -164,7 +167,9 @@ def finall_delete():
 
 @app.route("/daten_aendern")
 def change_data():
-    connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db")
+    connection = sqlite3.connect(
+        "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
+    )
     cursor = connection.cursor()
 
     cursor.execute(f"SELECT COUNT(*) FROM {session.get('choice')}")
@@ -179,11 +184,7 @@ def change_data():
 
         all_options += info_block
 
-
-    return render_template(
-        "/text_schreiben.html",
-        options = all_options
-    )
+    return render_template("/text_schreiben.html", options=all_options)
 
 
 @app.route("/daten_change", methods=["POST"])
@@ -193,7 +194,6 @@ def daten_change():
             "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
         )
         cursor = connection.cursor()
-
 
         if request.form.get("text_to_change") != "neuer_text":
             text = request.form.get("text")
@@ -206,23 +206,26 @@ def daten_change():
             )
             connection.commit()
             return redirect("/")
-        
-        connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db")
+
+        connection = sqlite3.connect(
+            "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
+        )
         cursor = connection.cursor()
-    
-        cursor.execute(f"INSERT INTO {session.get('choice')}(header, text) VALUES ('{request.form.get('header')}','{request.form.get('text')}')")
+
+        cursor.execute(
+            f"INSERT INTO {session.get('choice')}(header, text) VALUES ('{request.form.get('header')}','{request.form.get('text')}')"
+        )
         connection.commit()
-        
+
         return redirect("/")
-    
+
     elif request.form.get("option") == "delete":
-        connection = sqlite3.connect("/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db")
+        connection = sqlite3.connect(
+            "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
+        )
         cursor = connection.cursor()
         table = session.get("choice")
         header = request.form.get("text_to_change")
         cursor.execute(f"DELETE FROM {table} WHERE header = ?", (header,))
         connection.commit()
         return redirect("/")
-
-
-
