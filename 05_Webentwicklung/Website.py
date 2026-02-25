@@ -5,7 +5,6 @@ import sqlite3, hashlib
 connection = sqlite3.connect(
     "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
 )
-
 cursor = connection.cursor()
 
 USER_FILE = r"/home/git_repo/einarbeitung/05_Webentwicklung/user.json"
@@ -113,7 +112,7 @@ def infos1():
 
     session["choice"] = request.form.get("choice")
 
-    cursor.execute(f"SELECT COUNT(*) FROM {request.form.get('choice')}")
+    cursor.execute("SELECT COUNT(*) FROM (?) ", {request.form.get('choice')})
     anzahl_spalten = cursor.fetchone()[0]
     all_info_blocks = ""
     for i in range(anzahl_spalten):
@@ -189,11 +188,12 @@ def change_data():
 
 @app.route("/daten_change", methods=["POST"])
 def daten_change():
+    connection = sqlite3.connect(
+        "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
+    )
+    cursor = connection.cursor()
     if request.form.get("option") == "safe":
-        connection = sqlite3.connect(
-            "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
-        )
-        cursor = connection.cursor()
+
 
         if request.form.get("text_to_change") != "neuer_text":
             text = request.form.get("text")
@@ -207,10 +207,6 @@ def daten_change():
             connection.commit()
             return redirect("/")
 
-        connection = sqlite3.connect(
-            "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
-        )
-        cursor = connection.cursor()
 
         cursor.execute(
             f"INSERT INTO {session.get('choice')}(header, text) VALUES ('{request.form.get('header')}','{request.form.get('text')}')"
@@ -220,10 +216,7 @@ def daten_change():
         return redirect("/")
 
     elif request.form.get("option") == "delete":
-        connection = sqlite3.connect(
-            "/home/git_repo/einarbeitung/05_Webentwicklung/User_Infos.db"
-        )
-        cursor = connection.cursor()
+
         table = session.get("choice")
         header = request.form.get("text_to_change")
         cursor.execute(f"DELETE FROM {table} WHERE header = ?", (header,))
