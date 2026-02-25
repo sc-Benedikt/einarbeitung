@@ -26,14 +26,14 @@ Die Daten sollen in einer Datenbank gespeichert werden.
 
 - Was ist ein Primary Key und was ein Foreign Key?
    Primary:
-      Ein Primary Key ist eine eindeutige Kennung für jeden Datensatz in einer DB wodurch der Datensatz findbar ist, dieser darf nicht doppelt vorkommen und nicht 0/Leer sein. Bei einer Rationalen Datenbank ist dieser Primary Key meist durch eine spalte ganz am anfang gekennzeichnet, jede zeile bekommt eine nummer zugewiesen welche dann die zeile repräsentiert.
+      Ein Primary Key ist eine eindeutige Kennung für jeden Zeile in einer DB wodurch der Datensatz findbar ist, dieser darf nicht doppelt vorkommen und nicht 0/Leer sein. Bei einer Rationalen Datenbank ist dieser Primary Key meist durch eine spalte ganz am anfang gekennzeichnet, jede zeile bekommt eine nummer zugewiesen welche dann die zeile repräsentiert.
    Foreign:
       Ein Foreign Key ist eine Verknüpfung auf eine andere Tabelle, das Feld mit dem Foreign Key ist ein eintag der auf eine andere Tabelle (oder ein ihnhalt daraus) zeigt. Zum Beispiel gibt es zwei listen:
       Liste 1 (Käufer):       Käufer ID,  Name,    Adresse
                               1           Tom      muster Str
       Liste 2 (Bestellungen): Bestell ID, Wahren Preis,  Käufer
                               1782912     3,99€          1
-      Die Spalte "Besteller ID" (Liste 2) ist der Foreign Key. Er zeigt auf "Käufer ID" (Liste 1) und weist darauf hin das die Bestellung zu ihm gehöhrt 
+      Die Spalte "Käufer" (Liste 2) ist der Foreign Key. Er zeigt auf "Käufer ID" (Liste 1) und weist darauf hin das die Bestellung zu ihm gehöhrt 
 
 - Was ist ein nativer und was ein künstlicher Primary Key?
    Ein Nativer Key ist eine Information, die fest zu den Daten gehört wie z.B. die Besteller ID, diese wird dann als Key Benutzt.
@@ -66,7 +66,7 @@ Die Daten sollen in einer Datenbank gespeichert werden.
    Bei einer Kaskadierung hängen die Tabellen zusammen und übernehmen Veränderungen auf untergeordnete Tabellen automatisch. Zum Beispiel wenn ein Kunde in der Kunden Tabelle gelöscht wird, werden alle bestellungen von diesem Kunden in untergeordneten Tabellen ebenfalls gelöscht. Das hilft leere oder alleinestehende Zeilen zu vermeiden.
 
 - Wann werden Gruppierungen benötigt?
-   
+   Um Daten zusammenzufassen oder Aggregationsfunktionen  für diese Gruppe zu berechnen.
 
 - Was ist ein DBMS?
    Es ist ein Programm zur verwaltung von Datenbanken, es kann sie erstellen und kontrollieren. Man kann auch sagen das es die schnittstelle zwischen Benutzer/anwendung und den Physischen Daten.
