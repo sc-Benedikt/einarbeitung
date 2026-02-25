@@ -45,5 +45,3 @@ def creat_db_squads():
             )
         conn.commit()
 
-
-

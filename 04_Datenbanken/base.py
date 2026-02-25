@@ -27,7 +27,7 @@ def show_irgendwas():
     )
 
 def show_squad():
-    print_comand = ("""
+    print_command = ("""
     ---------Squads---------
       Options:
         Name ->         1
@@ -39,6 +39,7 @@ def show_squad():
         members ->      7
         back ->         x
     """)
-    return print_comand
+
+    print(print_command)
 
 
