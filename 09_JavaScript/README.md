@@ -28,14 +28,38 @@ In diesem Projekt soll eine Webanwendung erstellt werden, um Daten in einer Tabe
 
 ## Fragen und Antworten
 - Was sind die verschiedenen Technologien, die in der Webentwicklung verwendet werden? Nenne Beispiele und ihre Verwendungszwecke.
+    Es gibt HTML das für die Strucktur der Website genutzt wird, CSS das für das Design verfendet wird und JavaScript um die Websiten interaktiv zu machen.
+
 - Was versteht man unter serverseitig und clientseitig? Erläutere die Unterschiede und ihre Bedeutung in der Webentwicklung.
+    Unter den begriffen versteht man wo der Code ausgeführt wird oder die Daten verarbeitet werden. Sie können Serverseitig also direkt auf dem zentralen Server verarbeitet werden oder Clientseitig wo die Daten direkt auf dem Endgerät des Users verarbeitet werden.
 - Erkläre die Begriffe Frontend und Backend und ihre Rollen in der Webentwicklung.
+    Backend nennt man quasi alles was der Benutzer nicht sehen kann, darunter zählt dei Logik, die Datenbanken oder die Scripte. Frontend nennt man wiederum alles was der Uer sehen kann also die html seiten oder css.
+
 - Erkläre HTML, CSS und JS und wie diese zusammenarbeiten, um Webseiten zu erstellen.
+    HTML ist für die Strucktur da, CSS für das DESIGNE und JS wird verwendet um die Websiten interaktiv zu machen. Wenn man all diese Teile kombiniert hat man eine Website.
+
 - Aus welchen beiden Hauptteilen besteht ein HTML-Dokument? Beschreibe die Struktur eines typischen HTML-Dokuments.
+    Ein HTML dokument besteht aus einem header teil indem informationen zu dem Dokument steht oder was für einen Titel die  seite haben soll, und dann gibt es noch den Body teil der alle sichtbaren Inhalte einer Website, wie Text, Bilder oder Links beinhält.
+
 - Wie schreibt man Kommentare in HTML, CSS und JS? Zeige Beispiele für Kommentare in jeder dieser Sprachen.
+    HTML: <!--Kommentar-->
+    CSS: /*Kommentar*/
+    JS: //einzeiliger Kommentar
+        /*mehrzeiliger Kommentar*/
+
 - Was ist ein HTML-Tag? Erläutere die Bedeutung und Verwendung von HTML-Tags.
+    HTML tags sind spitze klammern "<,>" mit befehlen darinne, die dem Browser Anweisungen zur Srukturierung und Formatierung der Inhalte geben.
+
 - Was ist ein div-Tag und wofür wird es verwendet? Beschreibe die Verwendung von div-Tags in HTML.
+    div-Tags sind dazu da Inhalte einer Website zu Gruppieren, und mittels CSS zu stylen. So kann man z.B. verschiedenen Elementen den geleichen hintergrund geben.
+
 - Was ist XPath? Erkläre, wofür XPath verwendet wird und wie es in der Webentwicklung eingesetzt werden kann.
+    XPath ermöglicht es einfacher durch XML oder HTML Dokumente zu navigieren, oder auch zum daten zu filter. 
+
 - Was ist ein Z-Index? Erläutere die Bedeutung des Z-Index in CSS.
+    Z-index is dafür da bei überlappenden Elementen auf deiner Website die überlappung festzulegen. Er legt fest welches elemten im 3D raum näher beim Betrachter (davor) oder weiter weg (dahinter) liegt. Ein hoher nummerischer Wert bringt das Element nach vorne ein niedriger nach hinten.
+
 - Was ist jQuery? Beschreibe die Funktionen und Verwendungszwecke von jQuery.
+    jQuery ist eine JavaScript Bibliothek die darauf Basiert die Script erstellung von HTML zu vereinfachen. Sie ermöglicht es Komplexere Aufgaben wie Animationen mit viel weniger Codezeilen zu erstellen.
+
 - Wie lässt sich JavaScript in eine Website einfügen? Nenne zwei Möglichkeiten, um JavaScript-Code in HTML-Dokumente einzubinden.
