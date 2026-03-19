@@ -40,7 +40,7 @@ In diesem Projekt soll eine Webanwendung erstellt werden, um Daten in einer Tabe
     HTML ist für die Struktur da, CSS für das DESIGNE und JS wird verwendet um die Websiten interaktiv zu machen. Wenn man all diese Teile kombiniert hat man eine Website.
 
 - Aus welchen beiden Hauptteilen besteht ein HTML-Dokument? Beschreibe die Struktur eines typischen HTML-Dokuments.
-    Ein HTML dokument besteht aus einem header teil indem informationen zu dem Dokument steht oder was für einen Titel die  seite haben soll, und dann gibt es noch den Body teil der alle sichtbaren Inhalte einer Website, wie Text, Bilder oder Links beinhält.
+    Ein HTML dokument besteht aus einem header in dem Informationen zu der seite wie z.B. was für einen Titel die seite haben soll, und dann gibt es noch den Body teil der alle sichtbaren Inhalte einer Website, wie Text, Bilder oder Links beinhält.
 
 - Wie schreibt man Kommentare in HTML, CSS und JS? Zeige Beispiele für Kommentare in jeder dieser Sprachen.
     HTML: <!--Kommentar-->
@@ -52,7 +52,7 @@ In diesem Projekt soll eine Webanwendung erstellt werden, um Daten in einer Tabe
     HTML tags sind spitze klammern "<,>" mit befehlen darinne, die dem Browser Anweisungen zur Srukturierung und Formatierung der Inhalte geben.
 
 - Was ist ein div-Tag und wofür wird es verwendet? Beschreibe die Verwendung von div-Tags in HTML.
-    div-Tags sind dazu da Inhalte einer Website zu Gruppieren, und mittels CSS zu stylen. So kann man z.B. verschiedenen Elementen den geleichen hintergrund geben.
+    div-Tags sind dazu da Inhalte einer Website zu Gruppieren oder zu trennen, und mittels CSS zu stylen. So kann man z.B. verschiedenen Elementen den geleichen hintergrund geben.
 
 - Was ist XPath? Erkläre, wofür XPath verwendet wird und wie es in der Webentwicklung eingesetzt werden kann.
     XPath ermöglicht es einfacher durch XML oder HTML Dokumente zu navigieren, oder auch zum daten zu filter. 
@@ -64,3 +64,5 @@ In diesem Projekt soll eine Webanwendung erstellt werden, um Daten in einer Tabe
     jQuery ist eine JavaScript Bibliothek die darauf Basiert die Script erstellung von HTML zu vereinfachen. Sie ermöglicht es Komplexere Aufgaben wie Animationen mit viel weniger Codezeilen zu erstellen.
 
 - Wie lässt sich JavaScript in eine Website einfügen? Nenne zwei Möglichkeiten, um JavaScript-Code in HTML-Dokumente einzubinden.
+    1. man kann ihn direkt in die html seite schreiben wenn man <script>...</script> schreibt und dazwischen den code reinschreibt 
+    2. man schreibt den javascript code in eine extrene .js datei und bindet diese dann mit <script src="script.js"></script> in die datei ein

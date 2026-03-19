@@ -1,0 +1,103 @@
+<style>
+    table {
+        border-collapse: collapse;
+        text-align: left;
+        width: 80%;
+     
+        margin: 0 auto;
+        font-size: 200%;
+    }
+    td, th {
+        border: 2px solid black;
+       
+    }
+    .suchfeld{
+        width: 30%;
+        height: 10%;
+        margin: 0 auto;
+
+    }
+
+</style>
+
+<title>
+
+    tabelle
+
+</title>
+
+<body>
+
+    <input type="text" id="suche" placeholder="Suche nach Film..." class="suchfeld">
+
+
+    <script>
+        document.getElementById("suche").addEventListener("input", function () {
+        let filter = this.value.toLowerCase();
+        let rows = document.querySelectorAll("#meineTabelle tbody tr");
+
+        rows.forEach(row => {
+            let filmName = row.cells[0].innerText.toLowerCase();
+
+            if (filmName.startsWith(filter)) {
+            row.style.display = "";
+            } else {
+            row.style.display = "none";
+            }
+        });
+        });
+    </script>
+    </input>
+    
+
+    <table id="meineTabelle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Alter</th>
+                <th>Länge</th>
+                <th>Beschreibung</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>StarWars III</td>
+                <td>21 Jahre</td>
+                <td>2h 20min</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>Your Name</td>
+                <td>8 Jahre</td>
+                <td>1h 50min</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>Avatar – Aufbruch nach Pandora </td>
+                <td>17 Jahre</td>
+                <td>2h 42min</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>Avengers: Endgame</td>
+                <td>7 Jahre</td>
+                <td>3h 2min</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>Avatar - The Way of Water</td>
+                <td>4 Jahre</td>
+                <td>3h 12min</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>Titanic</td>
+                <td>29 Jahre</td>
+                <td>3h 14min</td>
+                <td>Info</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</body>
