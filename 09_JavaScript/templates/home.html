@@ -1,62 +1,90 @@
 <style>
+    body {
+        background-color: rgb(26, 26, 26);
+        color: white;
+
+    }
+
     table {
         border-collapse: collapse;
         text-align: left;
         width: 80%;
-     
-        margin: 0 auto;
+        table-layout: fixed;
+        margin: 30 auto;
         font-size: 200%;
+
     }
-    td, th {
-        border: 2px solid black;
-       
+
+    td,
+    th {
+        border: 2px solid rgb(199, 199, 199);
+        border-radius: 30%;
     }
-    .suchfeld{
+
+    .searchbar {
         width: 30%;
-        height: 10%;
-        margin: 0 auto;
+        height: 5%;
+        font-size: 300%;
+        background-color: rgba(255, 255, 255, 0);
+        border-color: rgb(199, 199, 199);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        color: white;
+
 
     }
 
+    
 </style>
 
 <title>
 
-    tabelle
+    Filme Tabelle
 
 </title>
 
 <body>
 
-    <input type="text" id="suche" placeholder="Suche nach Film..." class="suchfeld">
+    <input type="text" id="suche" placeholder="Suche nach Film..." class="searchbar">
 
 
     <script>
         document.getElementById("suche").addEventListener("input", function () {
-        let filter = this.value.toLowerCase();
-        let rows = document.querySelectorAll("#meineTabelle tbody tr");
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll("#meineTabelle tbody tr");
 
-        rows.forEach(row => {
-            let filmName = row.cells[0].innerText.toLowerCase();
+            rows.forEach(row => {
+                let filmName = row.cells[0].innerText.toLowerCase();
 
-            if (filmName.startsWith(filter)) {
-            row.style.display = "";
-            } else {
-            row.style.display = "none";
-            }
+                if (filmName.startsWith(filter)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
         });
-        });
+
+
     </script>
     </input>
-    
+
 
     <table id="meineTabelle">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Alter</th>
-                <th>Länge</th>
-                <th>Beschreibung</th>
+                <th>
+                    <h3>Name</h1>
+                </th>
+                <th>
+                    <h3>Alter</h3>
+                </th>
+                <th>
+                    <h3>Länge</h3>
+                </th>
+                <th>
+                    <h3>Beschreibung</h3>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -73,7 +101,7 @@
                 <td>Info</td>
             </tr>
             <tr>
-                <td>Avatar – Aufbruch nach Pandora </td>
+                <td>Avatar - Aufbruch nach Pandora </td>
                 <td>17 Jahre</td>
                 <td>2h 42min</td>
                 <td>Info</td>
