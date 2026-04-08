@@ -15,7 +15,6 @@ def check_tabelle_true(tabellen_name):
     return False
 
 
-
 def show_irgendwas():
     cursor.execute(
         """
@@ -25,21 +24,3 @@ def show_irgendwas():
     WHERE squads.squadName = 'Avengers'
 """
     )
-
-def show_squad():
-    print_command = ("""
-    ---------Squads---------
-      Options:
-        Name ->         1
-        Home Town ->    2
-        formed ->       3
-        status ->       4
-        secret Base ->  5
-        active ->       6
-        members ->      7
-        back ->         x
-    """)
-
-    print(print_command)
-
-

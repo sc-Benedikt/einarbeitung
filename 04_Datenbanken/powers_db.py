@@ -39,41 +39,38 @@ def creat_db_powers():
 
 
 def power_to_member():
-
-    cursor.execute(
-        """
-    CREATE TABLE powers_from_members (
-    member_id INTEGER,
-    power_id INTEGER,
-    FOREIGN KEY(member_id) REFERENCES member(member_id)
-    FOREIGN KEY(power_id) REFERENCES power(power_id)
-                   )
-"""
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS powers_to_members (
+    power_name TEXT,
+    member_name TEXT,
+    PRIMARY KEY (power_name, member_name)
+    FOREIGN KEY (power_name) REFERENCES powers(power_name),
+    FOREIGN KEY (member_name) REFERENCES members(member_name)
     )
+
+    """)
+
 
     for squad in all_squads:
         for member in squad.get("members"):
             for power in member.get("powers"):
-                cursor.execute(
-                    f"""
-                SELECT power_id FROM powers WHERE power_name = '{power}'
-            """
-                )
-                power_num = cursor.fetchall()[0][0]
-                cursor.execute(
-                    f"""
-                SELECT member_id FROM members WHERE member_name = '{member.get("name")}'
-            """
-                )
-                member_num = cursor.fetchall()[0][0]
-                cursor.execute(
-                    f"""
-                INSERT INTO powers_from_members (member_id, power_id) VALUES (?, ?)  
-                               """,
-                    (member_num, power_num),
-                )
+
+
+                    cursor.execute("""
+                    INSERT OR IGNORE INTO powers_to_members(power_name, member_name)
+                    VALUES (?, ?)
+                                """, (power, member.get("name"),))
     conn.commit()
- 
 
 
+def show_powers():
+    cursor.execute("""
+    SELECT 
 
+    """)
+    power_id = cursor.fetchall()
+    cursor.execute("""
+    SELECT power_name
+    FROM powers
+    WHERE LOWER(power_id) = LOWER(?)
+    """,  (power_id,))
